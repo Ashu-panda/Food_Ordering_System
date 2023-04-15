@@ -6,6 +6,6 @@ The application provides restaurant owners with a platform to manage their menu 
 
 
 Technologies Used:-
-*Java SpringBoot
-*Angular
-*MongoDB
+Java SpringBoot,
+Angular,
+MongoDB
