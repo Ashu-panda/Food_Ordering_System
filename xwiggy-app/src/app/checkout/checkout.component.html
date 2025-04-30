@@ -1,4 +1,4 @@
-<head>
+ <!-- <head>
   <title>SpringFood|Payment  </title>
 </head>
 <div class="body">
@@ -64,6 +64,95 @@
       </table>
     </div>
   </div>
+</div> -->
+
+
+
+<div class="checkout-container">
+  <div class="card-wrapper">
+    <button class="checkout-button">Secure Checkout 💳</button>
+    <div class="payment-info">
+      <p>To Pay: ₹{{ total }}</p>
+    </div>
+
+    <div class="credit-card">
+      <div class="card-front">
+        <div class="card-number">{{ cardNumber || 'xxxx xxxx xxxx xxxx' }}</div>
+        <div class="card-name">{{ nameOnCard || 'CARDHOLDER' }}</div>
+        <div class="card-expiry">{{ month || 'MM' }}/{{ year || 'YY' }}</div>
+      </div>
+    </div>
+
+    <!-- FORM START -->
+    <form #paymentForm="ngForm" (ngSubmit)="changeDB()" novalidate>
+
+      <label>Card Number</label>
+      <input type="text"
+             name="cardNumber"
+             placeholder="xxxx xxxx xxxx xxxx"
+             minlength="16"
+             maxlength="16"
+             required
+             [(ngModel)]="cardNumber"
+             (keyup)="validCard()"
+             #cardNumberRef="ngModel">
+      <div *ngIf="cardNumberRef.invalid && cardNumberRef.touched" class="error">Invalid Card Number</div>
+
+      <label>Expiry</label>
+      <div class="expiry-group">
+        <input type="number"
+               name="month"
+               placeholder="MM"
+               min="1"
+               max="12"
+               required
+               [(ngModel)]="month"
+               (keyup)="validMonth()"
+               #monthRef="ngModel">
+        <input type="number"
+               name="year"
+               placeholder="YY"
+               min="19"
+               max="99"
+               required
+               [(ngModel)]="year"
+               (keyup)="validYear()"
+               #yearRef="ngModel">
+      </div>
+      <div *ngIf="monthRef.invalid && monthRef.touched" class="error">Invalid Month</div>
+      <div *ngIf="yearRef.invalid && yearRef.touched" class="error">Invalid Year</div>
+
+      <label>CVV</label>
+      <div class="cvv-group">
+        <input type="number"
+               name="cvv"
+               placeholder="CVV"
+               min="100"
+               max="999"
+               required
+               [(ngModel)]="cvv"
+               (keyup)="validCvv()"
+               #cvvRef="ngModel">
+        <i class="fa fa-question-circle" title="3-digit code at the back of your card"></i>
+      </div>
+      <div *ngIf="cvvRef.invalid && cvvRef.touched" class="error">Invalid CVV</div>
+
+      <label>Cardholder Name</label>
+      <input type="text"
+             name="nameOnCard"
+             placeholder="Name"
+             minlength="4"
+             maxlength="50"
+             required
+             [(ngModel)]="nameOnCard"
+             (keyup)="validName()"
+             #nameRef="ngModel">
+      <div *ngIf="nameRef.invalid && nameRef.touched" class="error">Name must be 4–50 characters</div>
+
+      <div class="actions">
+        <button class="pay-btn" [disabled]="paymentForm.invalid">Pay</button>
+        <button class="back-btn" routerLink="/menu" type="button">Go Back</button>
+      </div>
+    </form>
+  </div>
 </div>
-
-

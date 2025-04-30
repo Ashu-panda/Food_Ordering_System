@@ -1,4 +1,4 @@
-<br><br><br>
+<!-- <br><br><br>
 <div class="body" align="center">
   <h1>SpringFood | CONTACT US</h1>
 </div>
@@ -44,4 +44,31 @@
 </div>
 <div *ngIf="gif">
   <img src="../../assets/images/gif1.gif">
+</div> -->
+
+
+<div class="contact-container">
+  <div class="contact-header">
+    <h1><span class="highlight">SpringFood</span> | Contact Us</h1>
+    <p>We’d love to hear from you! Drop us a message below.</p>
+  </div>
+
+  <form (ngSubmit)="sendFeedback()" class="contact-form" id="reused_form">
+    <textarea placeholder="Your Message..." rows="6" [(ngModel)]="modelMessage.message" name="message" required></textarea>
+
+    <div class="form-group">
+      <input type="text" placeholder="Your Name" disabled [value]="modelUser.firstname + ' ' + modelUser.lastname" />
+      <input type="email" placeholder="Your Email" disabled [value]="modelUser.email" />
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit" class="modern-btn"><span>Send</span></button>
+      <button type="button" class="modern-btn" routerLink="/menu"><span>Menu</span></button>
+      <button type="button" class="modern-btn" routerLink="/home" (click)="clearLocal()"><span>Log Out</span></button>
+    </div>
+  </form>
+
+  <div class="gif-container" *ngIf="gif">
+    <img src="../../assets/images/gif1.gif" alt="Loading..." />
+  </div>
 </div>

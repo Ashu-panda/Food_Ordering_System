@@ -60,35 +60,38 @@ export class CheckoutComponent implements OnInit {
   }
 
   message: string = '';
-
+  
   changeDB(): void {
     if (this.cardNumberVal && this.monthVal && this.yearVal && this.cvvVal && this.nameOnCardVal) {
       let url = "http://localhost:1200/changeDB";
       this.http.get(url).subscribe(
         res => {
           console.log("DB Updated");
+          
+          // Navigate to success page after successful DB update
+          this.router.navigate(['/success']);
         },
         err => {
           alert('Failed to update DB');
         }
-      )
+      );
     } else {
-      if (!this.cardNumberVal)
-        this.message += "Card Number Not Valid \n";
-      if (!this.monthVal)
-        this.message += "Enter A Valid Month \n";
-      if (!this.yearVal)
-        this.message += "Enter A Valid Year\n";
-      if (!this.cvvVal)
-        this.message += "Enter A Valid CVV \n";
-      if (!this.nameOnCardVal)
-        this.message += "Enter A Valid Name";
-
+      // Validation checks for form fields
+      if (!this.cardNumberVal) this.message += "Card Number Not Valid \n";
+      if (!this.monthVal) this.message += "Enter A Valid Month \n";
+      if (!this.yearVal) this.message += "Enter A Valid Year\n";
+      if (!this.cvvVal) this.message += "Enter A Valid CVV \n";
+      if (!this.nameOnCardVal) this.message += "Enter A Valid Name";
+  
+      // Alert with the validation error messages
       alert(this.message);
-      this.message = '';
+      this.message = ''; // Reset message after alert
+  
+      // Stay on the current checkout page
       this.router.navigate(['checkout']);
     }
   }
+  
 
   validYear() {
     this.yearVal = this.year >= 19 && this.year <= 99;

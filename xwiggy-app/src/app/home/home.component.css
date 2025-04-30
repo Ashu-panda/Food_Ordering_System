@@ -1,46 +1,263 @@
+/* 
+
+
 .body {
-  background-color: #393939;
-  background-repeat:no-repeat;
+  position: relative;
   width: 100%;
-  color: white;
-  font: 14px Helvetica, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+
+.body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  animation: slideShow 10s infinite;
+}
+
+
+@keyframes slideShow {
+  0% { background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); }
+  25% { background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); }
+  50% { background-image: url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); }
+  75% { background-image: url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); }
+  100% {background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); }
+}
+
+.top-nav {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 2;
 }
 
 .bigbutton {
-  border-radius: 4px;
+  border-radius: 30px;
   background-color: #f4511e;
   border: none;
   color: #FFFFFF;
-  text-align: center;
-  font-size: 15px;
-  padding: 20px;
-  width: 120px;
-  transition: all 0.5s;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: all 0.4s ease;
   cursor: pointer;
-  margin: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-weight: bold;
 }
 
-.bigbutton span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.bigbutton i {
+  font-size: 18px;
 }
 
-.bigbutton span:after {
-  content: '\00bb';
+.bigbutton:hover {
+  background-color: #e03e0f;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+
+.center-box {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 60px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(8px);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.center-box h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.center-box p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+
+.delivery-man {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.delivery-man img {
+  width: 100px;
+  animation: float 5s ease-in-out infinite;
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.center-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 60px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  -webkit-backdrop-filter: blur(8px);
+
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+h1 {
+  color: #00ffd0a1;
+} */
+
+
+.body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Background Slideshow */
+.body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  animation: slideShow 20s infinite;
+}
+
+@keyframes slideShow {
+  0% { background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); }
+  25% { background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); }
+  50% { background-image: url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); }
+  75% { background-image: url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); }
+  100% { background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'); }
+}
+
+/* Top-right navigation */
+.top-nav {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 2;
+}
+
+.bigbutton {
+  border-radius: 30px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-weight: bold;
+}
+
+.bigbutton i {
+  font-size: 18px;
+}
+
+.bigbutton:hover {
+  background-color: #e03e0f;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Center transparent box */
+.center-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.40);
+  padding: 16px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+/* div .center-box:hover {
+  background: rgba(47, 94, 83, 0.6) !important;
+} */
+
+div .center-box:hover {
+  background: rgba(47, 94, 83, 0.6) !important; /* Background change on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+.slogan {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(81, 255, 0, 0.97);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
   opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+  transition: opacity 1s ease-in-out;
 }
 
-.bigbutton:hover span {
-  padding-right: 25px;
-}
-
-.bigbutton:hover span:after {
+.slogan.fade-in {
   opacity: 1;
-  right: 0;
+}
+
+/* Delivery Man Image */
+.delivery-man {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.delivery-man img {
+  width: 100px;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Floating animation for delivery man */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.slogan {
+  opacity: 1; /* or default it as visible */
 }

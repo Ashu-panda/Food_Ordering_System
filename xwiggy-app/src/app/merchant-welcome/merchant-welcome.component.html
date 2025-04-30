@@ -1,4 +1,4 @@
-<div class="body">
+<!-- <div class="body">
   <br><br><br>
   <h1 align="center">SpringFood | HOME</h1>
   <br><br>
@@ -33,4 +33,38 @@
   </div>
 </div>
 
+ -->
 
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">Welcome to a world of flavors, just for you!</div>
+  <div class="navbar-right" (click)="toggleUserCard()">
+    Welcome, {{modelMerchant.firstname}} ▼
+  </div>
+</nav>
+
+<!-- Floating User Info Card -->
+<div class="user-card" *ngIf="showCard">
+  <div class="card-content">
+    <img src="../../assets/images/merchant.png" alt="User Image" />
+    <h3>{{modelMerchant.firstname}} {{modelMerchant.lastname}}</h3>
+    <p><strong>Account Type:</strong> Merchant</p>
+    <p><strong>Mobile:</strong> {{modelMerchant.phone}}</p>
+    <p><strong>Email:</strong> {{modelMerchant.email}}</p>
+  </div>
+</div>
+
+<!-- Main Body -->
+<div class="body">
+  <div class="container">
+    <div class="welcome-card">
+      <div class="welcome-slogan">Welcome to SpringFood – Taste the Joy!</div>
+      <!-- Your existing card content below -->
+      <p>Hello, {{modelMerchant.firstname}}! Enjoy browsing the menu and managing your account.</p>
+      <div class="menu-button-container">
+        <button class="bigbutton" routerLink="/merchantMenu"><span>Alter Menu</span></button>
+        <button class="bigbutton" routerLink="/home" (click)="clearLocal()"><span>Log Out</span></button>    
+      </div>
+    </div>
+  </div>
+</div>

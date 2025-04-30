@@ -1,47 +1,4 @@
-<!--<div class="body">
-  <br><br><br>
-  <h1 align="center">XWIGGY | HOME</h1>
-  <br><br>
-
-  <h1>Welcome, {{modelUser.firstname}}</h1>
-  <div class="alert alert-warning" align="center">
-    <strong>User Details</strong>
-  </div>
-
-<table cellpadding="30%" align="center" >
-  <tr>
-    <td>First Name</td>
-    <td>{{modelUser.firstname}}</td>
-  </tr>
-  <tr>
-    <td>Last Name</td>
-    <td>{{modelUser.lastname}}</td>
-  </tr>
-  <tr>
-    <td>Mobile Number</td>
-    <td>{{modelUser.phone}}</td>
-  </tr>
-  <tr>
-    <td>Email Id</td>
-    <td>{{modelUser.email}}</td>
-  </tr>
-  <tr>
-  </tr>
-  <tr>
-  </tr>
-  <tr>
-    <td><button class="bigbutton" routerLink="/home" (click)="clearLocal()"><span>Log Out</span></button></td>
-    <td><button class="bigbutton" routerLink="/menu"><span>Menu</span></button></td>
-
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td> </td>
-
-  </tr>
-</table>
-</div>-->
+<!-- 
 <div class="body">
 <br><br><br>
 <h1 align="center">SpringFood | HOME</h1>
@@ -77,4 +34,38 @@
 <div class="container" align="center">
 <button class="bigbutton" routerLink="/home" (click)="clearLocal()"><span>Log Out</span></button>
 <button class="bigbutton" routerLink="/menu"><span>Menu</span></button>
+</div> -->
+
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-left">Welcome to a world of flavors, just for you!</div>
+  <div class="navbar-right" (click)="toggleUserCard()">
+    Welcome, {{modelUser.firstname}} ▼
+  </div>
+</nav>
+
+<!-- Floating User Info Card -->
+<div class="user-card" *ngIf="showCard">
+  <div class="card-content">
+    <img src="../../assets/images/user.png" alt="User Image" />
+    <h3>{{modelUser.firstname}} {{modelUser.lastname}}</h3>
+    <p><strong>Account Type:</strong> User</p>
+    <p><strong>Mobile:</strong> {{modelUser.phone}}</p>
+    <p><strong>Email:</strong> {{modelUser.email}}</p>
+  </div>
+</div>
+
+<!-- Main Body -->
+<div class="body">
+  <div class="container">
+    <div class="welcome-card">
+      <div class="welcome-slogan">Welcome to SpringFood – Taste the Joy!</div>
+      <!-- Your existing card content below -->
+      <p>Hello, {{modelUser.firstname}}! Enjoy browsing the menu and placing your order.</p>
+      <div class="menu-button-container">
+        <button class="bigbutton" routerLink="/menu"><span>Menu</span></button>
+        <button class="bigbutton" routerLink="/home" (click)="clearLocal()"><span>Log Out</span></button>    
+    </div>
+    </div>
 </div>

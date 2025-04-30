@@ -1,15 +1,107 @@
-<head>
-  <title>Welcome</title>
-</head>
-<div class="body">
-<br><br><br><br>
-<H1 align="center">SpringFood | A FASTER WAY TO ORDER YOUR FOOD</H1>
-<br><br><br><br><br><br>
-<table align="center">
-  <tr>
-    <td><a routerLink="/login"><button class="bigbutton"><span>Log In</span></button></a></td>
-    <td><a routerLink="/register"><button class="bigbutton"><span>Register</span></button></a></td>
-  </tr>
-</table>
-</div>
+<!-- 
 
+<head>
+  <title>Welcome | SpringFood</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<div class="body">
+  
+  
+  <div class="top-nav">
+    <a routerLink="/login">
+      <button class="bigbutton">
+        <i class="fas fa-sign-in-alt"></i> <span>Log In</span>
+      </button>
+    </a>
+    <a routerLink="/register">
+      <button class="bigbutton">
+        <i class="fas fa-user-plus"></i> <span>Register</span>
+      </button>
+    </a>
+  </div>
+
+  
+  <div class="center-box">
+    <h1>Welcome to SpringFood</h1>
+    <p>Order your favorite dishes from the best restaurants near you.</p>
+    <p>Fast Delivery | Fresh Food | Easy Payment</p>
+  </div>
+
+ 
+  <div class="delivery-man">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Delivery Man">
+  </div>
+
+</div> -->
+
+
+<head>
+  <title>Welcome | SpringFood</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="body">
+
+    <!-- Top Navigation Buttons -->
+    <div class="top-nav">
+      <a routerLink="/login">
+        <button class="bigbutton">
+          <i class="fas fa-sign-in-alt"></i> <span>Log In</span>
+        </button>
+      </a>
+      <a routerLink="/register">
+        <button class="bigbutton">
+          <i class="fas fa-user-plus"></i> <span>Register</span>
+        </button>
+      </a>
+    </div>
+
+    <!-- Center Content Box with slogans -->
+    <div class="center-box">
+      <!-- Slogan Text -->
+      <h1 class="slogan fade-in" id="sloganText">
+        ORDER YOUR FAVORITE DISHES<br><br>
+        Order. Eat. Repeat.
+      </h1>
+      <!-- Logo Image -->
+      <img src= "https://img.icons8.com/?size=160&id=0Zk7gB0KvwPs&format=png" alt="Ordered & Delivered Logo" class="logo-image">
+    </div>
+
+    <!-- Delivery Man Image -->
+    <div class="delivery-man">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Delivery Man">
+    </div>
+
+  </div>
+
+  <!-- JS AFTER content -->
+  <script>
+    const slogans = [
+      "Hunger meets its match.",
+      "Order. Eat. Repeat.",
+      "Your favorite food, just a tap away.",
+      "Craving? We'll bring it.",
+      "Fast, Fresh, Delivered.",
+      "From kitchen to couch, in minutes.",
+      "Don’t wait—just plate!",
+      "Taste the speed of delivery.",
+      "Feast at your fingertips.",
+      "Click, Order, Chow down."
+    ];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      let current = 0;
+      const sloganText = document.getElementById("sloganText");
+
+      setInterval(() => {
+        current = (current + 1) % slogans.length;
+        sloganText.classList.remove("fade-in");
+        void sloganText.offsetWidth; // trigger reflow
+        sloganText.textContent = slogans[current];
+        sloganText.classList.add("fade-in");
+      }, 4000);
+    });
+  </script>
+</body>

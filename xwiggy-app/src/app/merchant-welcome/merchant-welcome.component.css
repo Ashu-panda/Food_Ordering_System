@@ -1,4 +1,4 @@
-.body {
+/* .body {
   background: #393939;
   color: white;
   font: 14px Helvetica, sans-serif;
@@ -87,4 +87,156 @@ form div {
 .bigbutton:hover span:after {
   opacity: 1;
   right: 0;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+.body {
+  background: url('https://media.istockphoto.com/id/1279485865/photo/luxury-table-settings-for-fine-dining.jpg?s=612x612&w=0&k=20&c=OaIj6LFf6vUuYHBUCNusHzqVz7GRuH0m-fQZuwPAJpI=') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  height: 100vh;
+  font: 14px Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Navbar Styling */
+.navbar {
+  width: 98%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-left {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-right {
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.navbar-right:hover {
+  color: #f4511e;
+}
+
+/* User Floating Card */
+.user-card {
+  position: fixed;
+  top: 60px;
+  right: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.user-card img {
+  width: 60px;
+  float: left;
+  margin-right: 15px;
+}
+
+.user-card h3 {
+  margin: 0;
+}
+
+.user-card p {
+  margin: 5px 0;
+  clear: both;
+}
+
+/* Buttons */
+.bigbutton {
+  border-radius: 25px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px 30px;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bigbutton span {
+  position: relative;
+  transition: 0.5s;
+}
+
+.bigbutton span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.bigbutton:hover span {
+  padding-right: 20px;
+}
+
+.bigbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.welcome-card {
+  border: none;
+  border-radius: 16px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.welcome-card:hover {
+  transform: scale(1.02);
+}
+
+.welcome-slogan {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideIn 1s ease-in-out;
+  margin-bottom: 20px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-success',
@@ -8,20 +8,28 @@ import {Router} from "@angular/router";
 })
 export class SuccessComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     if (sessionStorage.getItem("userData") == null) {
       this.router.navigate(['login']);
     }
-    if( sessionStorage.getItem("total")==null)
+    if (sessionStorage.getItem("total") == null) {
       this.router.navigate(["menu"]);
+    }
   }
 
-  clearLocal(){
+  goToContactUs() {
+    this.router.navigate(['contactUs']);
+  }
+
+  goToMenu() {
+    this.router.navigate(['menu']);
+  }
+
+  logout() {
     sessionStorage.clear();
+    this.router.navigate(['login']);
   }
-
-
 
 }
