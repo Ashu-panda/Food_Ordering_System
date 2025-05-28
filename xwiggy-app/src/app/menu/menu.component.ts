@@ -40,7 +40,9 @@ export class MenuComponent implements OnInit {
   getItems(): void {
     this.menuService.getItems().subscribe((men: any[]) => {
       this.model = men;
-      this.model = men.filter(item => item.item.toLowerCase() !== 'horlicks 1kg');
+     // this.model = men.filter(item => item.item.toLowerCase() !== 'horlicks 1kg');
+      //this.model = men.filter(item => item.item.toLowerCase() !== 'cacke');
+      // you can delete any item from here also usig this filter method
       for (let i = 0; i < this.model.length; i++) {
         this.values.push(new Quantity());
         this.values[i].quantity = 0;

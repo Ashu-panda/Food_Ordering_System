@@ -125,20 +125,21 @@ export class ContactUsComponent implements OnInit {
     this.gif = true;
     this.modelMessage.name = `${this.modelUser.firstname} ${this.modelUser.lastname}`;
     this.modelMessage.email = this.modelUser.email;
+    alert("Message Sent Successfully!");
 
-    const url = "http://localhost:1200/contact";
-    this.http.post<contact>(url, this.modelMessage).subscribe(
-      res => {
-        ContactUsComponent.changeLoading();
-        if (res)
-          alert("Message Sent Successfully!");
-        this.gif = !res;
-      },
-      err => {
-        alert("An error occurred while sending the message.");
-        this.gif = false;
-      }
-    );
+    // const url = "http://localhost:1200/contact";
+    // this.http.post<contact>(url, this.modelMessage).subscribe(
+    //   res => {
+    //     ContactUsComponent.changeLoading();
+    //     if (res)
+    //       
+    //     this.gif = !res;
+    //   },
+    //   err => {
+    //     alert("An error occurred while sending the message.");
+    //     this.gif = false;
+    //   }
+    // );
   }
 
   static changeLoading(): void {

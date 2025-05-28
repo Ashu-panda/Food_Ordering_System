@@ -87,20 +87,30 @@ p{
 
  */
 
- .menu-container {
+ body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('https://img.freepik.com/premium-photo/writing-chalkboard_1048944-18879919.jpg?ga=GA1.1.428495072.1745920404&semt=ais_hybrid&w=740') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.menu-container {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .menu-header h2 {
   text-align: center;
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  color: rgba(0, 255, 234, 0.703);
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .menu-grid {
@@ -110,21 +120,23 @@ p{
 }
 
 .menu-card {
-  background: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .menu-img {
   width: 100%;
   height: 180px;
-  object-fit: cover;
+  object-fit: contain;
+  border-bottom: 1px solid #ddd;
 }
 
 .menu-info {
@@ -133,14 +145,15 @@ p{
 }
 
 .menu-info h3 {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  color: #000;
+  color: #222;
 }
 
 .menu-info p {
   margin: 0.25rem 0;
-  color: #555;
+  color: #444;
+  font-weight: 500;
 }
 
 .qty-input {
@@ -148,37 +161,50 @@ p{
   padding: 0.5rem;
   width: 100%;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.qty-input:focus {
+  outline: none;
+  border-color: #f4511e;
+  box-shadow: 0 0 4px #f4511e;
 }
 
 .cart-total {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: #222;
+  color: rgba(50, 205, 94, 0.906);
   text-align: center;
   margin-top: 2rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .menu-button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   border: none;
-  background: #f4511e;
+  background: linear-gradient(135deg, #f4511e, #ff7043);
   color: #fff;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .menu-button:hover {
-  background: #d84315;
+  background: linear-gradient(135deg, #d84315, #e64a19);
+  transform: scale(1.05);
 }
 

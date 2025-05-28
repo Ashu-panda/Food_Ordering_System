@@ -1,79 +1,71 @@
+
+
+
+
 <form (ngSubmit)="onSubmit()">
-  <div class="card align-contents">
-    <p><img class="card-img-top" style="padding: 0 15px; float: left;" src="../../assets/images/shop.png"
-        alt="Card image cap">
-      <font>Welcome,<br> On-boarding New Items</font>
-    </p>
-    <div class="table-responsive panel">
+  <div class="card form-container">
+    <div class="card-header">
+      <img class="card-img" src="../../assets/images/shop.png" alt="Shop">
+      <div class="welcome-text">
+        <h2>Welcome,</h2>
+        <h3>On-boarding New Items</h3>
+      </div>
+    </div>
+    
+    <div class="alert-container">
+      <div *ngIf="present === false" class="alert alert-danger" align="center">
+        <strong>Item ID Not Unique!</strong>
+      </div>
+      <div *ngIf="present" class="alert alert-success" align="center">
+        <strong>Item ID Unique</strong>
+      </div>
+    </div>
+
+    <div class="table-responsive">
       <table class="table">
         <tbody>
           <tr>
-            <td></td>
-            <td>
-              <div class="container" style="height: 75px;">
-                <div *ngIf="present==false" class="alert alert-danger alert-box" align="center"
-                  style="width: 60%; margin: auto;">
-                  <strong>Item ID Not Unique!</strong>
-                </div>
-                <div *ngIf="present" class="alert alert-success alert-box" align="center"
-                  style="width: 60%; margin: auto;">
-                  <strong>Item ID Unique</strong>
-                </div>
-              </div>
-            </td>
+            <td class="label"><i class="fa fa-user"></i> Item Id</td>
+            <td><input placeholder="Item Id" type="text" minlength="3" maxlength="3" [(ngModel)]="newFoodItems.id" name="id" required></td>
+          </tr>
+          <tr>
+            <td class="label"><i class="fa fa-user-circle"></i> Item Name</td>
+            <td><input placeholder="Item Name" type="text" minlength="2" maxlength="20" [(ngModel)]="newFoodItems.name" name="name" required></td>
             <td></td>
           </tr>
           <tr>
-            <td class="text-success" align="right"><i class="fa fa-user"></i> Item Id</td>
-            <td><input placeholder="Item Id" type="text" minlength="3" maxlength="3" [(ngModel)]="newFoodItems.id"
-                name="id" required="required"></td>
-            <td><button style="position: absolute; left: 68%" type="button" (click)="checkAvailability()"><span>Check
-                  Availability</span></button></td>
-          </tr>
-          <tr>
-            <td class="text-success" align="right"><i class="fa fa-user-circle"></i> Item Name</td>
-            <td><input placeholder="Item Name" type="text" minlength="2" maxlength="20" [(ngModel)]="newFoodItems.name"
-                name="name" required="required"></td>
+            <td class="label"><i class="fa fa-mobile"></i> Price (INR)</td>
+            <td><input placeholder="Price" type="number" name="price" [(ngModel)]="newFoodItems.price" required min="0"></td>
             <td></td>
           </tr>
           <tr>
-            <td class="text-success" align="right"><i class="fa fa-mobile"></i> Price (INR)</td>
-            <td><input placeholder="Price" type="number" name="price" [(ngModel)]="newFoodItems.price"
-                required="required" min="0"></td>
+            <td class="label"><i class="fa fa-envelope"></i> Available Quantity</td>
+            <td><input placeholder="Available Quantity" type="number" name="quantity" [(ngModel)]="newFoodItems.quantityAvailable" required min="0"></td>
             <td></td>
           </tr>
           <tr>
-            <td class="text-success" align="right"><i class="fa fa-envelope"></i> Available Quantity</td>
-            <td><input placeholder="Available Quantity" type="number" name="quantity"
-                [(ngModel)]="newFoodItems.quantityAvailable" required="required" min="0"></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="text-success" align="right"><i class="fa fa-envelope"></i> Food Image</td>
+            <td class="label"><i class="fa fa-image"></i> Food Image</td>
             <td><input type="file" (change)="onFileSelected($event)"></td>
             <td></td>
           </tr>
-
           <tr>
-            <td class="text-success" align="right"><i class="fa fa-envelope"></i> OR</td>
+            <td class="label"><i class="fa fa-link"></i> OR</td>
             <td></td>
             <td></td>
           </tr>
-
           <tr>
-            <td class="text-success" align="right"><i class="fa fa-envelope"></i> Food Image URL</td>
-            <td><input type="text" placeholder="Paste The Url" name="fileDataF" [(ngModel)]="newFoodItems.fileDataF">
-            </td>
+            <td class="label"><i class="fa fa-link"></i> Food Image URL</td>
+            <td><input type="text" placeholder="Paste The URL" name="fileDataF" [(ngModel)]="newFoodItems.fileDataF"></td>
             <td></td>
           </tr>
         </tbody>
       </table>
     </div>
-  </div>
 
-  <div class="container" align="center" style="margin-left: 20%;">
-    <button class="bigbutton" routerLink="/home" (click)="clearLocal()"><span>LogOut</span></button>
-    <button class="bigbutton" routerLink="/merchantMenu"><span>Menu</span></button>
-    <button class="bigbutton" type="submit"><span>AddItem</span></button>
+    <div class="btn-container">
+      <button class="btn-action" routerLink="/home" (click)="clearLocal()">LogOut</button>
+      <button class="btn-action" routerLink="/merchantMenu">Menu</button>
+      <button class="btn-action" type="submit">Add Item</button>
+    </div>
   </div>
 </form>
